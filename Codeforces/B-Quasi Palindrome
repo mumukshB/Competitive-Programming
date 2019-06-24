@@ -1,0 +1,29 @@
+import java.util.*;
+public class xyz {
+    public static void main(String...args) {
+        Scanner ob = new Scanner(System.in);
+        int n = ob.nextInt();
+        int count = 0;
+        int m = n;
+        int r=0;
+        do {
+              r = m % 10;
+            if (r == 0)
+                count++;
+            m = m / 10;
+        } while (r == 0);
+        int s=0;
+        n=n/(int)Math.pow(10,count);
+        int p=n;
+
+     while(n!=0)
+     {r=n%10;
+     s=s*10+r;
+     n=n/10;
+     }
+     if(p==s)
+         System.out.println("YES");
+     else System.out.println("NO");
+    }
+
+}
