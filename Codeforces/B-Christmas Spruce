@@ -1,0 +1,34 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class hello {
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n=ob.nextInt();
+        int[] ar=new int[n];
+        for(int i=0;i<n-1;i++)
+            ar[i]=ob.nextInt();
+        HashMap<Integer,Set<Integer>> hm=new HashMap<>();
+        for(int j=0;j<n-1;j++)
+        {
+            Set<Integer> child=new HashSet<>();
+            if(!hm.containsKey(ar[j]))
+            {child.add(j+2);
+                hm.put(ar[j],child);}
+            else if(ar[j]>=2&&hm.containsKey(ar[ar[j]-2]))
+                hm.get(ar[ar[j]-2]).remove(ar[j]);
+            hm.get(ar[j]).add(j+2);
+        }
+        int flag=1;
+        for(int key:hm.keySet())
+        {
+            if(hm.get(key).size()<3)
+                flag=0;
+        }
+        if(flag==1)
+            System.out.print("Yes");
+        else
+            System.out.print("No");
+
+
+    }
