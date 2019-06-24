@@ -1,0 +1,25 @@
+
+ #include <bits/stdc++.h>
+
+using namespace std;
+
+long long maximizingXor(long long l) {
+    long long ans=1;
+    while(ans<l)
+        ans=ans*2+1;
+    return ans;
+}
+
+int main() {
+    long long l;
+    cin >> l;
+    long long r;
+    cin >> r;
+    long long result;
+    if(r==1)
+        result=l;
+    else{
+      result = maximizingXor(l);}
+    cout << result << endl;
+    return 0;
+}
