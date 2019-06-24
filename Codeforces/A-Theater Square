@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class firstone{
+public static void main(String...args)
+{
+    Scanner ob=new Scanner(System.in);
+    double n,m,a;
+    n=ob.nextDouble();
+    m=ob.nextDouble();
+    a=ob.nextDouble();
+   long res=(long)(Math.ceil(n/a)*Math.ceil(m/a));
+    System.out.print(res);
+}}
