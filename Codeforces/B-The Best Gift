@@ -1,0 +1,9 @@
+from collections import Counter;
+n,m=map(int,input().split())
+li=(list(map(int,input().split())))
+count=dict(Counter(li))
+sum=(n*(n-1))/2
+for k,v in count.items():
+    if v>1:
+        sum-=(v*(v-1))/2
+print(int(sum))
