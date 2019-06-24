@@ -1,0 +1,12 @@
+from collections import Counter;
+import bisect
+n=int(input())
+li=sorted(list(map(int,input().split())))
+day=int(input())
+l=[]
+for _ in range(day):
+    x=int(input())
+    index=bisect.bisect_left(li,x+1,0,n)
+    l.append(index)
+for e in l:
+    print(e)
