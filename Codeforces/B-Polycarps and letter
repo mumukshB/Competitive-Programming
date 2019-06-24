@@ -1,0 +1,38 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class sax {
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n=ob.nextInt();
+        ob.nextLine();
+        String exp=ob.nextLine();
+        final HashSet<Character> result=new HashSet<>();
+        int count=0,g_max=Integer.MIN_VALUE,start=0,end=0;
+        for (int i=0;i<exp.length();i++)
+        {
+            while (exp.charAt(i)>=97&&exp.charAt(i)<=122)
+            {i++; count++;if(i>=exp.length())break;}
+            end=i-1;
+            start=end-count+1;
+            String sub=exp.substring(start,end+1);
+            if(!sub.isEmpty())
+            {
+                for(int j=0;j<sub.length();j++)
+                {
+                    result.add(sub.charAt(j));
+                }
+                if(result.size()>g_max)
+                {
+                    g_max=result.size();
+                }
+                result.clear();
+            }
+            count=0;
+        }
+        if(g_max==Integer.MIN_VALUE)
+            System.out.println(0);
+        else
+     System.out.println(g_max);
+    }
+}
