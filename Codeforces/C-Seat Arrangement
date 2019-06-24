@@ -1,0 +1,54 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class TestClass{
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n=ob.nextInt();
+        int m=ob.nextInt();
+        int k=ob.nextInt();
+        ob.nextLine();
+        char mat[][]=new char[n][m];
+        for(int i=0;i<n;i++)
+        {
+            String s=ob.nextLine();
+            for(int j=0;j<m;j++)
+            {
+               mat[i][j]=s.charAt(j);
+            }
+        }
+        
+        int ans=0;
+        for(int i=0;i<n;i++)
+        {
+            int count=0;
+            for(int j=0;j<m;j++)
+            {
+                if(mat[i][j]=='.')
+                {
+                    count+=1;
+                    if(count>=k)
+                        ans+=1;}
+                else count=0;
+            }
+        }
+
+        for(int i=0;i<m;i++)
+        {
+            int count=0;
+            for(int j=0;j<n;j++)
+            {
+                if(mat[j][i]=='.')
+                {
+                    count+=1;
+                    if(count>=k)
+                        ans+=1;}
+                else count=0;
+            }
+        }
+        if(k==1)
+            System.out.print(ans/2);
+        else System.out.print(ans);
+
+    }
+}
