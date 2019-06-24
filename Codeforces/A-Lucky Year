@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class firstone{
+public static void main(String...args)
+{
+    Scanner ob=new Scanner(System.in);
+    int n=ob.nextInt();
+    int m=n,c=-1;
+    while(n!=0)
+    {c++;n=n/10;}
+    int a=(int)Math.pow(10,c);
+    if(c==0)
+    System.out.print(1);
+    else
+    System.out.print(a-(m%a));
+    
+}}
