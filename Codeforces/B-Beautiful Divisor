@@ -1,0 +1,22 @@
+
+ import java.util.*;
+public class duh {
+    public static void main(String[] args) {
+        Scanner ob = new Scanner(System.in);
+        int n=ob.nextInt();
+        int[] divisors=new int[17];
+        Arrays.fill(divisors,0);
+        for(int k=0;k<16;k++)
+        {
+            for(int l=k;l<=2*k;l++)
+            {
+                divisors[k]+=1<<l;
+            }
+        }
+        int max=1;
+        for(int m=0;m<16;m++)
+        {if(n%divisors[m]==0)
+            max=Math.max(max,divisors[m]);
+        }
+        System.out.print(max);
+    }}
