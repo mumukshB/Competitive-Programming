@@ -1,0 +1,16 @@
+import java.util.*;
+public class duh {
+    public static void main(String[] args) {
+        Scanner ob = new Scanner(System.in);
+        int a=ob.nextInt();
+        int b=ob.nextInt();
+        int c=ob.nextInt();
+        int d=ob.nextInt();
+        int e=a^b;
+        int f=c|d;
+        int g=b&c;
+        int h=a^d;
+        System.out.println((e&f)^(g|h));
+
+
+    }}
