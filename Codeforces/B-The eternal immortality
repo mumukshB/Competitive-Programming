@@ -1,0 +1,28 @@
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class reg {
+    public static void main(String[] args) {
+        Scanner ob = new Scanner(System.in);
+        Long a=ob.nextLong();
+        Long b=ob.nextLong();
+        BigInteger result=new BigInteger("1");
+        if(b-a>=10)
+            System.out.println("0");
+        else if(a==1||a==0)
+        {
+            for(long i=2;i<=b;i++)
+            {
+                result=result.multiply(BigInteger.valueOf(i));
+            }
+            System.out.println(result.mod(BigInteger.valueOf(10)));
+        }
+        else
+        {
+            long offset=b-a;
+            for(long i=1;i<=offset;i++)
+                result=result.multiply(BigInteger.valueOf(a+i));
+            System.out.println(result.mod(BigInteger.valueOf(10)));
+        }
+    }}
