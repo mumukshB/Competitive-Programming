@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class comp {
+    static class  graph{
+        int verices;
+        LinkedList<Integer> adjacencyList[];
+        graph(int verices)
+        {
+            this.verices=verices;
+            adjacencyList=new LinkedList[verices];
+            for(int i=0;i<verices;i++)
+                adjacencyList[i]=new LinkedList<>();
+        }
+    }
+    public void addEdge(int source,int end,graph G)
+    {
+        G.adjacencyList[source].addFirst(end);
+        G.adjacencyList[end].addFirst(source);
+    }
+    static void bfs(int source,graph G,boolean[] marked,int[] level)
+    {
+        Queue<Integer> queue=new LinkedList<>();
+        marked[source]=true;
+        queue.add(source);
+        level[source]=0;
+        while(!queue.isEmpty())
+        {
+            int x=queue.poll();
+            Iterator<Integer> iterator=G.adjacencyList[x].listIterator();
+             while (iterator.hasNext())
+             {
+                 int e=iterator.next();
+                 if(!marked[e])
+                 {   marked[e]=true;
+                     queue.add(e);
+                 level[e]=level[x]+1;
+             }
+
+        }
+    }}
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n=ob.nextInt();
+        int count=0;
+        boolean[] marked=new boolean[n];
+        Arrays.fill(marked,false);
+        int[] level=new int[n];
+        int[] lead=new int[n];
+        for(int i=0;i<n;i++)
+            lead[i]=ob.nextInt();
+        graph G=new graph(n);
+        comp tree=new comp();
+        for(int j=0;j<n;j++)
+        {
+            if(lead[j]!=-1)
+             tree.addEdge(j,lead[j]-1,G);
+        }
+        for(int k=0;k<n;k++)
+        {
+          if(lead[k]==-1)
+              bfs(k,G,marked,level);
+        }
+        Arrays.sort(level);
+        System.out.print(level[n-1]+1);
+}}
