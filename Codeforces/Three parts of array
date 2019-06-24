@@ -1,0 +1,18 @@
+
+ n=int(input())
+values=list(map(int,input().split()))
+i=0;j=n-1;sum_left=values[i];sum_right=values[j];max_sum=0
+while i<j:
+    if sum_left==sum_right:
+        max_sum=sum_left
+        i+=1
+        j-=1
+        sum_left+=values[i]
+        sum_right+=values[j]
+    elif sum_left<sum_right:
+        i+=1
+        sum_left+=values[i]
+    else:
+        j-=1
+        sum_right+=values[j]
+print(max_sum)
