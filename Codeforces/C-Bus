@@ -1,0 +1,61 @@
+import java.util.*;
+
+public class xy {
+
+    public static void main(String[] args) {
+        Scanner ob = new Scanner(System.in);
+    int st=ob.nextInt();
+    int cap=ob.nextInt();
+    int fuel=ob.nextInt();
+    int trips=ob.nextInt();
+        int i=1;
+        int start,end;
+        int a=cap;
+        int flag=0;
+        int count=0;
+        if(a>=st*trips)
+            System.out.println(0);
+        else {
+            while(i!=trips+1)
+            {
+                if(i%2==0)
+                {
+                    start=st;
+                    end=0;
+                }
+                else{
+                    start=0;
+                    end=st;
+                }
+                if(trips==i&&a>=Math.abs(end-start))
+                    break;
+                else if(a>=Math.abs(2*end-start-fuel))
+                {
+                    a-=Math.abs(end-start);
+                    i++;
+
+                }
+                else
+                {   if(i%2==0)
+                {start=st;
+                end=fuel;}
+                else end=fuel;
+                    a-=Math.abs(end-start);
+                    if(a<0)
+                    {System.out.println(-1);flag=1;break;}
+                    count++;
+                    a=cap;
+                    if(i%2==0)
+                        end=0;
+                    else end=st;
+                    start=fuel;
+                    a-=Math.abs(end-start);
+                    if(a<0)
+                    {System.out.println(-1);flag=1;break;}
+                    i++;
+
+                }
+        }
+
+        if(flag==0)
+        System.out.println(count);}}}
