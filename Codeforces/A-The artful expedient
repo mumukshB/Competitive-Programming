@@ -1,0 +1,31 @@
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class reg {
+    public static void main(String[] args) {
+        Scanner ob = new Scanner(System.in);
+        int n = ob.nextInt();
+        int count=0;
+        HashSet<Integer> hs = new HashSet<>();
+        int[] array = new int[n];
+        for (int j = 0; j < n; j++) {
+            array[j] = ob.nextInt();
+            hs.add(array[j]);
+        }
+        for (int i = 0; i < n; i++) {
+            int element = ob.nextInt();
+            hs.add(element);
+        }
+        for (int k = 0; k < n; k++) {
+            for (int l = 0; l < n; l++) {
+                int value = array[k] ^ array[l];
+                if(hs.contains(value))
+                    count++;
+            }
+        }
+        if(count%2==0)
+            System.out.println("Karen");
+        else System.out.println("Koyonami");
+    }}
