@@ -1,0 +1,41 @@
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class duh {
+    public static void main(String[] args) {
+        Scanner ob = new Scanner(System.in);
+        int n=ob.nextInt();
+        long k=ob.nextLong();
+        int[] ar=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            ar[i]=ob.nextInt();
+        }
+        int max=Integer.MIN_VALUE;
+        for(int j=0;j<n;j++)
+        {
+            max=Math.max(ar[j],max);
+        }
+        int s=0,index=0;
+        for(int j=index+1;j<n;j++)
+        {
+            int x=ar[index];
+            if(x==max)
+            {break;}
+            if(x>ar[j])
+                s++;
+            else {
+                index=j;
+                s=1;
+            }
+            if(s==k)
+            {break;}
+        }
+        if(index>=n)
+            System.out.println(max);
+        else
+            System.out.println(ar[index]);
+
+    }}
